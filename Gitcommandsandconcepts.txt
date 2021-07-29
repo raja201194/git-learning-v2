@@ -1,0 +1,95 @@
+Git commands and concepts
+========================
+
+git config --global e
+git config --global user.name "raja201194"
+git config --global user.email "reddyrajasekhar32@gmail.com"
+alias npp="notepad++.exe -multiInst -nosession"
+
+Important Terms
+===============
+commit -> adding our code to git (contains information like who did the commit, when the commit was made, what is the purpose of commit)
+clone -> exact copy from remote repository
+Tracking/Untracking files -> .git is folder which tracks our project.  The files which are tracked by git is called tracked files and which are not tracked	
+								are called untracked files.
+								
+Git Workflow
+============
+Working Directory 
+	|
+Staging Area
+	|
+Local Repository
+	|
+Remote Repository(Github, Gitlab)
+
+To terms related to workflow
+============================
+Master
+Origin
+
+local to stash -> add
+stash to local repo -> commit
+local repo to remote -> push
+
+If we have already a git repo containng a project and we have to work on it , then series of steps to be followed
+================================================================================================================
+1. git clone <repo-name> (into your local folder and this will become local git repo automatically as we are directly taking it from github)
+2. git add <file-name> or git add .(after doing changes , exeuting add ommand will push code staging area of loacl git repo)
+3. git commit -m "<message>"(now cpde will be comitted to local git repo)
+4. git push origin master(this will move our code to remote git hub repository)
+
+
+to check the files in spcific repository
+=======================================
+ls
+ls -al(for all hidden files also)
+
+Generally when we clone the project we get a project into our local with remote repo name
+But if we want the repo name to be our custom repo name then we have to execute below git command
+
+git clone <remote reponame> <custom-name>
+
+suppose we created a project in our local and we have to move to remote newly created git-hub repo
+=================================================================================================
+1. create your local project and do coding
+2. git init(initialize your project folder ) and .git folder will be added
+3. git status (will show untracked files)
+4. git add . (will add all the files to stagig area)
+5. git commit -m "message" (will commit the changes to local repo)
+6. git remote add origin <github-reponame>  (this will link up our local repo to github remote repository)
+7. git push -u origin master(pushing to github remote repository)
+
+Suppose if we want few files to be ignored by git
+===============================================
+1.In gitbash type "vi .gitingnore" 
+2.Press "i" so that it will enable us to write something in editor
+3. Now press shift plus : and then enter wq(write quit) so that .gitignore will be saved
+
+git diff
+========
+Once you do git add <file-name>, the file goes to staged area.
+Now you do some changes to that file.
+If you want to know the differences between staged and unstaged version we have to use git diff
+
+git branching
+=============
+1. first commit to any project is called root commit
+2. git log --pretty=full  => to check who committed the commits
+3. to create a branch git branch <branch_name>
+4. to move to particular branch git checkout <branch_name>
+5. to move and create a branch at same time git checkout -b <branch_name>
+
+
+now we have created multiple branches and made changes 
+so we have different changes in different branches.
+now we need ti merge one by one
+
+let's say I have some changes in branch "email-fix". It has one extra commit over master branch
+Now I want to merge email-fix branch to master.
+So Firsy I will checkout to master. Then I will give command git merge <branch-name>
+
+Now both master and email-fix branch are pointing to same commit(both branches are in sync). Now I dont want email-fix branch.
+To delete a branch git branch -d <branch-name>
+
+
